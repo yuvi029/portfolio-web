@@ -5,6 +5,8 @@ import About from './components/About';
 import Education from './components/education';
 import Project from './components/projects';
 import Speed from'./components/speed'
+import Skill from './components/skill'
+import SoftSkills from './components/softskill';
 import './App.css';
 
 function App() {
@@ -17,6 +19,9 @@ function App() {
         <Education/>
         <Project/>
         <Speed/>
+        <Skill/>
+        <SoftSkills />
+        
       {/* </main> */}
     </div>
   );

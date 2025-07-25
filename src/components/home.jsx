@@ -3,6 +3,7 @@ import { BsEye } from "react-icons/bs";
 import { Typewriter } from "react-simple-typewriter";
 import { motion } from "framer-motion";
 import profileImage from '../assets/YUVRAJ_NIRMAAN.jpg';
+import pfp from '../assets/yuvi.jpeg'
 
 const Hero = () => {
   return (
@@ -26,6 +27,11 @@ const Hero = () => {
           alt="Yuvraj Singh"
           className="w-72 h-72 rounded-full object-cover border-4 border-white shadow-lg mb-4"
         />
+        {/* <img
+          src={pfp}
+          alt="Yuvraj Singh"
+          className="w-72 h-72 rounded-full object-cover border-4 border-white shadow-lg mb-4"
+        /> */}
 
         <h1 className="text-4xl md:text-5xl font-extrabold mb-2 text-white drop-shadow-[0_2px_2px_rgba(0,0,0,0.9)]">
           Yuvraj Singh
@@ -38,7 +44,7 @@ const Hero = () => {
               "B.Tech EE | NIT Jamshedpur",
               "Frontend Developer",
             ]}
-            loop={false}
+            loop={true}
             cursor
             cursorStyle="_"
             typeSpeed={70}
