@@ -7,6 +7,8 @@ import Project from './components/projects';
 import Speed from'./components/speed'
 import Skill from './components/skill'
 import SoftSkills from './components/softskill';
+import Contacts from './components/contact';
+import A from './components/acheive'
 import './App.css';
 
 function App() {
@@ -20,8 +22,9 @@ function App() {
         <Project/>
         <Speed/>
         <Skill/>
+        <A/>
         <SoftSkills />
-        
+        <Contacts/>
       {/* </main> */}
     </div>
   );

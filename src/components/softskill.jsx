@@ -1,53 +1,56 @@
-import React from 'react';
+import { FaUsers, FaComments, FaBrain, FaClock, FaTableTennis, FaFutbol, FaTv } from 'react-icons/fa';
+import { GiCricketBat } from 'react-icons/gi';
 
-const hobbies = [
-  {
-    name: 'Badminton',
-    emoji: '🏸',
-    color: 'from-purple-700 to-purple-900',
-  },
-  {
-    name: 'Cricket',
-    emoji: '🏏',
-    color: 'from-yellow-500 to-yellow-700',
-  },
-  {
-    name: 'Football',
-    emoji: '⚽',
-    color: 'from-blue-600 to-blue-800',
-  },
-  {
-    name: 'Web Series',
-    emoji: '🎬',
-    color: 'from-pink-600 to-pink-800',
-  },
+const softSkills = [
+  { icon: <FaUsers size={28} />, name: "Team Work", bg: "bg-pink-600" },
+  { icon: <FaComments size={28} />, name: "Communication", bg: "bg-blue-600" },
+  { icon: <FaBrain size={28} />, name: "Problem Solving", bg: "bg-green-600" },
+  { icon: <FaClock size={28} />, name: "Time Management", bg: "bg-yellow-600" },
 ];
 
-const Hobbies = () => {
-  return (
-    <section
-      id="hobbies"
-      className="bg-[#0f172a] text-white py-16 px-6 md:px-16 min-h-screen font-sans"
-    >
-      <h2 className="text-4xl font-bold text-center mb-12 border-b-2 border-pink-500 inline-block">
-        My Hobbies
-      </h2>
+const hobbies = [
+  { icon: <FaTableTennis size={28} />, name: "Badminton", bg: "bg-indigo-600" },
+  { icon: <GiCricketBat size={28} />, name: "Cricket", bg: "bg-emerald-600" },
+  { icon: <FaFutbol size={28} />, name: "Football", bg: "bg-rose-600" },
+  { icon: <FaTv size={28} />, name: "Web Series", bg: "bg-purple-600" },
+];
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 justify-items-center">
-        {hobbies.map((hobby, index) => (
+const SkillsAndHobbies = () => {
+  return (
+    <div className="bg-[#0a1128] text-white py-16 px-6 md:px-20 min-h-screen">
+      {/* Soft Skills Section */}
+      <h2 className="text-3xl font-bold text-center underline underline-offset-8 decoration-pink-500 mb-10">
+        Soft Skills
+      </h2>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 justify-items-center mb-16">
+        {softSkills.map((skill, idx) => (
           <div
-            key={index}
-            className={`bg-gradient-to-br ${hobby.color} p-[2px] rounded-xl w-full max-w-[200px] shadow-lg hover:shadow-pink-500/30 transition-all transform hover:scale-105 duration-300`}
+            key={idx}
+            className={`flex flex-col items-center justify-center w-36 h-36 rounded-full ${skill.bg} shadow-lg hover:scale-105 transition-transform duration-300`}
           >
-            <div className="bg-[#1e1e1e] p-6 rounded-lg h-full flex flex-col items-center justify-center">
-              <div className="text-5xl mb-4">{hobby.emoji}</div>
-              <h3 className="text-lg font-semibold text-center">{hobby.name}</h3>
-            </div>
+            {skill.icon}
+            <p className="mt-3 text-sm font-semibold">{skill.name}</p>
           </div>
         ))}
       </div>
-    </section>
+
+      {/* Hobbies Section */}
+      <h2 className="text-3xl font-bold text-center underline underline-offset-8 decoration-pink-500 mb-10">
+        Hobbies
+      </h2>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 justify-items-center">
+        {hobbies.map((hobby, idx) => (
+          <div
+            key={idx}
+            className={`flex flex-col items-center justify-center w-36 h-36 rounded-full ${hobby.bg} shadow-lg hover:scale-105 transition-transform duration-300`}
+          >
+            {hobby.icon}
+            <p className="mt-3 text-sm font-semibold">{hobby.name}</p>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 };
 
-export default Hobbies;
+export default SkillsAndHobbies;
