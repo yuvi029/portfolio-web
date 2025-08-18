@@ -4,6 +4,7 @@ import Nirmaan from '../assets/nirmaan.png';
 import mindripple from '../assets/mindripple.png';
 import shopai from '../assets/shopai.png';
 import image from '../assets/image.png';
+import yuvraj from '../assets/yuvraj.png'
 
 const projects = [
   {
@@ -50,7 +51,7 @@ const projects = [
     title: 'PORTFOLIO',
     description:
       'This project is a personal portfolio website with a fully functional Contact Form integrated with MongoDB Atlas. Visitors can send messages directly through the website, and the data is securely stored in a cloud database for easy access.essionals quickly capture key points, decisions, and next steps without manually going through long discussions.',
-    image: image,
+    image: yuvraj,
     tags: ['HTML', 'Tailwind', 'React', 'express.js', 'netlify', 'postman','mangodb'],
     codeLink: 'https://github.com/yuvi029/portfolio-web.git',
     demoLink: 'https://ai-meeting-summarizer-six.vercel.app/', // replace with actual live link if different
