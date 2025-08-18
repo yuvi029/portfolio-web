@@ -3,6 +3,7 @@ import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import Nirmaan from '../assets/nirmaan.png';
 import mindripple from '../assets/mindripple.png';
 import shopai from '../assets/shopai.png';
+import image from '../assets/image.png';
 
 const projects = [
   {
@@ -33,6 +34,26 @@ const projects = [
     tags: ['HTML', 'Tailwind', 'React', 'Framer Motion', 'Python', 'C', 'Cython', 'Cuda', 'XSLT'],
     codeLink: 'https://github.com/yuvi029/Sparkathon.git',
     demoLink: 'https://shopai-sparkathon.vercel.app/', // replace with actual live link if different
+    featured: false,
+  },
+  {
+    title: 'ai-meeting-summarizer',
+    description:
+      'AI Meeting Summarizer is a full-stack web application that automatically generates concise, detailed, or action-oriented summaries from meeting transcripts. It helps professionals quickly capture key points, decisions, and next steps without manually going through long discussions.',
+    image: image,
+    tags: ['HTML', 'Tailwind', 'React', 'express.js', 'Gemini api', 'postman',],
+    codeLink: 'https://github.com/yuvi029/ai-meeting-summarizer.git',
+    demoLink: 'https://ai-meeting-summarizer-six.vercel.app/', // replace with actual live link if different
+    featured: true,
+  },
+  {
+    title: 'PORTFOLIO',
+    description:
+      'This project is a personal portfolio website with a fully functional Contact Form integrated with MongoDB Atlas. Visitors can send messages directly through the website, and the data is securely stored in a cloud database for easy access.essionals quickly capture key points, decisions, and next steps without manually going through long discussions.',
+    image: image,
+    tags: ['HTML', 'Tailwind', 'React', 'express.js', 'netlify', 'postman','mangodb'],
+    codeLink: 'https://github.com/yuvi029/portfolio-web.git',
+    demoLink: 'https://ai-meeting-summarizer-six.vercel.app/', // replace with actual live link if different
     featured: false,
   },
 ];

@@ -1,6 +1,48 @@
-import { FaLinkedin, FaGithub, FaTwitter, FaInstagram, FaEnvelope, FaPhone, FaMapMarkerAlt, FaPaperPlane, FaShareAlt } from 'react-icons/fa';
+import { useState } from "react";
+import axios from "axios";
+import {
+  FaLinkedin,
+  FaGithub,
+  FaTwitter,
+  FaInstagram,
+  FaEnvelope,
+  FaPhone,
+  FaMapMarkerAlt,
+  FaPaperPlane,
+  FaShareAlt,
+} from "react-icons/fa";
 
 const Contact = () => {
+  // form state
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [status, setStatus] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const res = await axios.post("/.netlify/functions/submit-message", {
+        fullName,
+        email,
+        message,
+      });
+
+      if (res.data.success) {
+        setStatus("✅ Message sent successfully!");
+        setFullName("");
+        setEmail("");
+        setMessage("");
+      } else {
+        setStatus("❌ Failed to send message.");
+      }
+    } catch (err) {
+      console.error(err);
+      setStatus("⚠️ Server error. Try again later.");
+    }
+  };
+
   return (
     <section className="min-h-screen bg-[#0f172a] text-white px-6 md:px-20 py-16 font-sans">
       <div className="grid md:grid-cols-2 gap-12">
@@ -10,13 +52,17 @@ const Contact = () => {
             <FaPaperPlane className="text-blue-400" />
             Send Message
           </h2>
-          <form className="space-y-6">
+
+          <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
               <label className="block mb-1">Full Name</label>
               <input
                 type="text"
                 placeholder="Enter your full name"
+                value={fullName}
+                onChange={(e) => setFullName(e.target.value)}
                 className="w-full bg-[#1e293b] text-white p-3 rounded-md outline-none focus:ring-2 focus:ring-blue-500"
+                required
               />
             </div>
             <div>
@@ -24,17 +70,27 @@ const Contact = () => {
               <input
                 type="email"
                 placeholder="Enter your email address"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="w-full bg-[#1e293b] text-white p-3 rounded-md outline-none focus:ring-2 focus:ring-blue-500"
+                required
               />
             </div>
             <div>
               <label className="block mb-1">
-                Message <span className="text-sm text-gray-400">(0/500)</span>
+                Message{" "}
+                <span className="text-sm text-gray-400">
+                  ({message.length}/500)
+                </span>
               </label>
               <textarea
                 rows="5"
+                maxLength="500"
                 placeholder="Write your message here..."
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
                 className="w-full bg-[#1e293b] text-white p-3 rounded-md outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+                required
               ></textarea>
             </div>
             <button
@@ -45,6 +101,11 @@ const Contact = () => {
               Send Message
             </button>
           </form>
+
+          {/* Status Message */}
+          {status && (
+            <p className="mt-4 text-sm text-gray-300">{status}</p>
+          )}
         </div>
 
         {/* Right: Contact Info and Social */}
